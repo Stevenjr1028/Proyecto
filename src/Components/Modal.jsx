@@ -2,9 +2,29 @@ import React, { useState } from 'react'
 import "../CSS/Modal_Style.css"
 import upload_img from '../Helpers/UpImage'
 import check_size from '../Helpers/check_size'
-import save_pin from '../Helpers/save_pin'
 
-function Modal() {
+
+
+
+
+function save_pin(pinDetails, add_pin) {
+    const user_data = {
+        ...pinDetails,
+        author: "Jack",
+        board: "default",
+        title: document.querySelector("#pin_tittle").value,
+        description: document.querySelector("#pin_description").value,
+        destination: document.querySelector("#pin_destination").value,
+        pin_size: document.querySelector("#pin_size").value,
+
+    }
+
+    add_pin(user_data);
+
+
+}
+
+function Modal(props) {
     const [pinDetails, setPinDetails] = useState({
         author: "",
         board: "",
@@ -72,7 +92,7 @@ function Modal() {
                                 <option value="medium">Medio</option>
                                 <option value="large">Grande</option>
                             </select>
-                            <div onClick={()=>save_pin(pinDetails)} className="save_pin">Guardar</div>
+                            <div onClick={()=>save_pin(pinDetails, props.add_pin)} className="save_pin">Guardar</div>
                         </div>
 
 

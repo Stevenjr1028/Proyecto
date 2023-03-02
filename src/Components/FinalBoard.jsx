@@ -1,9 +1,9 @@
 import React from 'react'
-import "../CSS/Modal_and_pin.css"
+import "../CSS/FinalBoard_style.css"
 import Pin from './Pin'
 import Modal from './Modal'
 
-class ModalAnPin extends React.Component {
+class FinalBoard extends React.Component {
     constructor(props) {
         super(props)
 
@@ -64,4 +64,4 @@ class ModalAnPin extends React.Component {
     }
 }
 
-export default ModalAnPin;
+export default FinalBoard;
