@@ -1,7 +1,9 @@
 import Modal from "../Components/Modal";
 import React from "react";
 
-function save_pin(pinDetails) {
+
+
+function save_pin(pinDetails, add_pin) {
     const user_data = {
         ...pinDetails,
         author: "Jack",
@@ -13,7 +15,7 @@ function save_pin(pinDetails) {
 
     }
 
-    console.log(user_data);
+    add_pin(user_data);
 
 
 }
