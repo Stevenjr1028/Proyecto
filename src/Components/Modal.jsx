@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../CSS/Modal_Style.css"
 import upload_img from '../Helpers/UpImage'
+import check_size from '../Helpers/check_size'
 
 
 
@@ -55,7 +56,7 @@ function Modal() {
                             }}
                         >
                             <div className="pin_image">
-                                <img src={pinDetails.img_blob} alt="pin_image" />
+                                <img onLoad= {check_size} src={pinDetails.img_blob} alt="pin_image" />
                             </div>
                         </div>
 
