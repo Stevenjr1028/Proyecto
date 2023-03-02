@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/Pin_Styles.css";
+import upload_img from "../Helpers/UpImage";
 
-const Pin = () => {
+
+function Pin() {
+    const [pinImage, setPinImage] = useState();
+    
 
     return (
         <div>
 
-            <input type="file" name="picture" id="picture" value=""></input>
+            <input onChange={event => upload_img(event, setPinImage)} type="file" name="picture" id="picture" value=""></input>
 
             <div className="card">
                 <div className="pin_tittle"></div>
@@ -24,26 +28,26 @@ const Pin = () => {
                             </div>
                             <span>Eatery</span>
                         </div>
-                        
-                            <div className="pint_mock_icon_container">
-                                <img src="./Images/share.png" alt="send" className="pint_mock_icon" />
-                            </div>
-                            
-                            <div className="pint_mock_icon_container">
-                                <img src="./Images/options.png" alt="edit" className="pint_mock_icon" />
-                            </div>
-                       </div>
+
+                        <div className="pint_mock_icon_container">
+                            <img src="./Images/share.png" alt="send" className="pint_mock_icon" />
+                        </div>
+
+                        <div className="pint_mock_icon_container">
+                            <img src="./Images/options.png" alt="edit" className="pint_mock_icon" />
+                        </div>
+                    </div>
 
                 </div>
 
 
 
                 <div className="pin_image">
-                    <img src="" alt="pin_image"></img>
+                    <img src={pinImage} alt="pin_image" />
                 </div>
             </div>
         </div>
-    )
+    );
 
 
 
