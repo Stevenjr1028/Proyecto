@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../CSS/Modal_Style.css"
-import upload_img from '../Helpers/UpImage';
+import upload_img from '../Helpers/UpImage'
+
+
+
+
 
 
 
 function Modal() {
+    const [pinDetails, setPinDetails] = useState({
+        author: "",
+        board: "",
+        decription: "",
+        destination: "",
+        img_blob: "",
+        pin_size: "",
+    })
+    const [showLabel, setShowLabel] = useState(true);
+    const [showModalPin, setShowModalPin] = useState(false);
     return (
         <div className="add_pin_modal">
             <div className="add_pin_container">
@@ -16,7 +30,13 @@ function Modal() {
 
                     </div>
                     <div className="section2">
-                        <label htmlFor="upload_img" id="upload_img_label">
+                        <label htmlFor="upload_img" id="upload_img_label"
+                            style={{
+                                display: showLabel ? "block" : "none"
+
+                            }}
+                        >
+
                             <div className="upload_img_container">
                                 <div id="dotted_border">
                                     <div className="pint_mock_icon_container">
@@ -26,12 +46,16 @@ function Modal() {
                                     <div>Recomendación: Usa archivos .jpg de alta calidad de menos de 20 MB </div>
                                 </div>
                             </div>
-                            <input onChange={upload_img} type="file" name="upload_img" id="upload_img" value="" />
+                            <input onChange={event => upload_img(event, pinDetails, setPinDetails, setShowLabel,setShowModalPin)} type="file" name="upload_img" id="upload_img" value="" />
                         </label>
 
-                        <div className="modals_pin">
+                        <div className="modals_pin"
+                            style={{
+                                display: showModalPin ? "block" : "none"
+                            }}
+                        >
                             <div className="pin_image">
-                                <img src={pinDetail.img_blob} alt="pin_image" />
+                                <img src={pinDetails.img_blob} alt="pin_image" />
                             </div>
                         </div>
 
@@ -45,7 +69,7 @@ function Modal() {
                 <div className="side" id="right_side">
                     <div className="section1">
                         <div className="select_size">
-                            <select defaultValue="Seleccionar"name="pin_size" id="pin_size">
+                            <select defaultValue="Seleccionar" name="pin_size" id="pin_size">
                                 <option value="">Seleccionar</option>
                                 <option value="small">Pequeño</option>
                                 <option value="medium">Medio</option>
