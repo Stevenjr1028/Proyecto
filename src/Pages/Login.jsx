@@ -44,21 +44,20 @@ function Login() {
                                     <img src="./Images/logo-Pinteres.png" alt="Logo de Pinterest" />
                                 </div>
                                 <div className="formulario">
-                                    <form onSubmit={handleSubmit}>
+                                    <form className='formlogin' onSubmit={handleSubmit}>
                                         <label>
                                             <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                         </label>
                                         <label>
                                             <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                         </label>
-                                        <button type="submit">Iniciar sesión</button>
+                                        <button className='buttonlogin' type="submit">Iniciar sesión</button>
+                                        <p className='descripcionregistro'>¿Aun no estas en Pinteres?</p>
+                                        <a href='' className='enlaceregistro'>   Regístrate</a>
                                     </form>
                                 </div>
                             </div>
-                            <div className='registrar'>
-                                <p className='descripcionregistro'>¿Aun no estas en Pinteres?</p>
-                                <a href='' className='enlaceregistro'>   Regístrate</a>
-                            </div>
+                            
 
                         </div>
                     </main>

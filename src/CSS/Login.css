@@ -82,7 +82,7 @@ main{
 
 
 
-form {
+.formlogin {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,7 +103,7 @@ input[type="password"] {
     font-size: 16px;
 }
 
-button[type="submit"] {
+.buttonlogin[type="submit"] {
     background-color: #c20000;
     color: #fff;
     border: none;
@@ -111,11 +111,19 @@ button[type="submit"] {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+    margin: 10px;
 }
 
-button[type="submit"]:hover {
+.buttonlogin[type="submit"]:hover {
     background-color: #a30000;
 }
+
+.enlaceregistro {
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 
 footer {
    
@@ -143,6 +151,13 @@ a:hover {
     color: #666;
 
     text-decoration: underline;
+
+}
+
+p {
+    color: #666;
+    text-decoration: none;
+    margin: 5px;
 
 }
 
