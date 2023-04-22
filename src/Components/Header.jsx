@@ -1,7 +1,7 @@
 // import PinterestIcon from '@mui/icons-material/Pinterest';
 import styled from "@emotion/styled";
 import { IconButton } from "@mui/material";
-import React from 'react';
+import React, { useState } from 'react';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import FinalBoard from "./FinalBoard";
 import SearchIcon from '@mui/icons-material/Search';
@@ -10,7 +10,16 @@ import TextsmsIcon from '@mui/icons-material/Textsms';
 import FaceIcon from '@mui/icons-material/Face';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-function Header() {
+
+function Header(props) {
+    const [input, setInput]= useState("");
+    
+    const onSearchSubmit = (e) => {
+        e.preventDefault()
+        props.onSubmit(input);
+        
+    }
+
     return (
         <Wrapper>
             <LogoWrapper>
@@ -31,8 +40,8 @@ function Header() {
                         <SearchIcon />
                     </IconButton>
                     <form className="formheader">
-                        <input type="text" />
-                        <button type="submit"></button>
+                        <input type="text" onChange={(e)=> setInput(e.target.value)}/>
+                        <button type="submit" onClick={onSearchSubmit}></button>
                     </form>
 
                 </SearchBarWrapper>

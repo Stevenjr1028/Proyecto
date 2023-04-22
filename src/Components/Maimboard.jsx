@@ -2,11 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import Pins from "./Pins";
 
-function Maimboard() {
+function Maimboard(props) {
+
+    let {pines} = props;
+
     return (
         <Wrapper>
             <Container>
-                <Pins/>
+                {pines.map((pin, index)=>{
+                    let {urls}= pin;
+
+                    return <Pins key={index} urls={urls}/>
+
+                })}
+                
             </Container>
         </Wrapper>
     )
