@@ -33,8 +33,12 @@ justify-content: center;
 
 `
 const Container = styled.div`
-display: flex;
-width:80%;
+flex-wrap:wrap;
+column-count: 5;
+column-gap: 10px;
+margin: 0 auto;
+height: 100%;
+max-width: 1260px;
 background-color: white;
 
 `
