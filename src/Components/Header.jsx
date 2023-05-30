@@ -11,6 +11,11 @@ import FaceIcon from '@mui/icons-material/Face';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
+
+
+
+
+
 function Header(props) {
     const [input, setInput]= useState("");
     
@@ -76,6 +81,10 @@ function Header(props) {
 export default Header
 
 const Wrapper = styled.div`
+top: 0;
+left: 0;
+width: 100%;
+z-index: 100;
 display:flex;
 align-items: center;
 height: 56px;
