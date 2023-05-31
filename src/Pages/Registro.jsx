@@ -93,7 +93,7 @@ function Registro() {
                                         <button  className='buttonlogin' type="submit">        Registrate
 </button>
                                         <p className='descripcionregistro'>¿Ya tienes una cuenta?</p>
-                                        <Link to = "/login">
+                                        <Link to = "/">
                                             Inicia Sesión
                                         </Link>
                                     </form>
