@@ -48,16 +48,16 @@ function Registro() {
         console.log(`Email: ${email}, Password: ${password}`);
         // history.push("/home");
         try {
-            const { data } = await projectApi.post('/auth/new/', {
-              email,
-              password,
-              name,
-            });
+           // const { data } = await projectApi.post('/auth/new/', {
+             // email,
+             // password,
+             // name,
+           // });
 
-            console.log(data)
+           // console.log(data)
       
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('token-init-date', new Date().getTime().toString());
+            //localStorage.setItem('token', data.token);
+            //localStorage.setItem('token-init-date', new Date().getTime().toString());
 
             navigate("/inicio");
 
