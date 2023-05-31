@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Pins from "./Pins";
+import Header from "./Header";
 
 function Maimboard(props) {
 
     let {pines} = props;
 
     return (
+
+        <>
+        <Header></Header>
+        
         <Wrapper>
             <Container>
                 {pines.map((pin, index)=>{
@@ -18,6 +23,7 @@ function Maimboard(props) {
                 
             </Container>
         </Wrapper>
+        </>
     )
 }
 

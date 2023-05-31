@@ -13,12 +13,13 @@ import { Link } from 'react-router-dom';
 
 
 
-function Login() {
+function Registro() {
 
     
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const [images, setImages] = useState([
         './Images/home-phones.png',
         './Images/home-phones2.png',
@@ -42,9 +43,10 @@ function Login() {
         console.log(`Email: ${email}, Password: ${password}`);
         // history.push("/home");
         try {
-            const { data } = await projectApi.post('/auth/', {
+            const { data } = await projectApi.post('/auth/new/', {
               email,
               password,
+              name,
             });
 
             console.log(data)
@@ -83,14 +85,17 @@ function Login() {
                                         <label>
                                             <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                         </label>
+                                        <label>
+                                            <input type="text" placeholder="Nombre de Usuario" value={name} onChange={(e) => setName(e.target.value)} required />
+                                        </label>
 
-                                        <button  className='buttonlogin' type="submit">        Iniciar Sesión
+                                       
+                                        <button  className='buttonlogin' type="submit">        Registrate
 </button>
-                                        <p className='descripcionregistro'>¿Aun no estas en Pinteres?</p>
-                                        <Link to = "/register">
-                                            Registrarse
+                                        <p className='descripcionregistro'>¿Ya tienes una cuenta?</p>
+                                        <Link to = "/login">
+                                            Inicia Sesión
                                         </Link>
-
                                     </form>
                                 </div>
                             </div>
@@ -127,4 +132,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Registro;

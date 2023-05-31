@@ -1,9 +1,13 @@
 import Header from './Components/Header'
 import Maimboard from './Components/Maimboard'
-import unsplash from './api/unsplash'
+import unsplash from './api/unsplash.js'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import Login from './Pages/Login'
+import Registro from './Pages/Registro'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+
 function App() {
   const [pines, setNewPins] = useState([])
 
@@ -16,6 +20,8 @@ function App() {
     })
 
   }
+
+  
 
   const onSearchSubmit = (term) => {
     console.log("on search submit", term)
@@ -33,43 +39,54 @@ function App() {
       setNewPins(newPins);
     })
 
-    
+
 
   }
 
-  const getNewPins = () =>{
-    let promises= [];
+  const getNewPins = () => {
+    let promises = [];
     let pinData = [];
 
-    let pines = ["car","cats","lions","dogs","ocean","tokyo","ramen"];
+    let pines = ["car", "cats", "lions", "dogs", "ocean", "tokyo", "ramen"];
 
-    pines.forEach((pinTerm)=>{
+    pines.forEach((pinTerm) => {
       promises.push(
-        getImages(pinTerm).then((res)=>{
+        getImages(pinTerm).then((res) => {
           let results = res.data.results;
 
-          pinData= pinData.concat(results);
+          pinData = pinData.concat(results);
 
-          pinData.sort(function(a,b){
+          pinData.sort(function (a, b) {
             return 0.5 - Math.random();
           });
         })
       )
     })
-    Promise.all(promises).then(()=>{
+    Promise.all(promises).then(() => {
       setNewPins(pinData);
     })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getNewPins();
-  },[]);
+  }, []);
 
 
   return (
     <>
-      <Header onSubmit={onSearchSubmit} />
-      <Maimboard pines={pines} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Registro/>} />
+        <Route path="/inicio" element={
+         
+          <Maimboard pines={pines} />
+
+        } />
+   </Routes>
+    </BrowserRouter>
+
+      
 
     </>
 
