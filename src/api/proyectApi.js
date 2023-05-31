@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const projectApi = axios.create({
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://backend-production-e84e.up.railway.app/api',
 });
 
 projectApi.interceptors.request.use((config) => {

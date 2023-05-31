@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../CSS/Login.css';
 import projectApi from '../api/proyectApi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -26,6 +26,11 @@ function Registro() {
         './Images/home-phones3.png',
     ]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const navigate = useNavigate();
+
+
+
 
     useEffect(() => {
         // Cambia la imagen cada 5 segundos
@@ -53,6 +58,9 @@ function Registro() {
       
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime().toString());
+
+            navigate("/inicio");
+
       
                 } catch (error) {
       console.log(error)

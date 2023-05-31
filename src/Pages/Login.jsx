@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../CSS/Login.css';
 import projectApi from '../api/proyectApi';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 
 
@@ -26,6 +26,9 @@ function Login() {
     ]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+    const navigate = useNavigate();
+
+    
     useEffect(() => {
         // Cambia la imagen cada 5 segundos
         const intervalId = setInterval(() => {
@@ -51,6 +54,11 @@ function Login() {
       
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime().toString());
+
+            navigate("/inicio");
+
+
+            
       
                 } catch (error) {
       console.log(error)
