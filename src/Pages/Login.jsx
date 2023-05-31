@@ -45,15 +45,15 @@ function Login() {
         console.log(`Email: ${email}, Password: ${password}`);
         // history.push("/home");
         try {
-            const { data } = await projectApi.post('/auth/', {
-              email,
-              password,
-            });
+           // const { data } = await projectApi.post('/auth/', {
+           //   email,
+             // password,
+            //});
 
-            console.log(data)
+            //console.log(data)
       
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('token-init-date', new Date().getTime().toString());
+            //localStorage.setItem('token', data.token);
+            //localStorage.setItem('token-init-date', new Date().getTime().toString());
 
             navigate("/inicio");
 
